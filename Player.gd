@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var ray = $RayCastDown
+
 var grid_size = 16
 var inputs = {
 	'ui_up': Vector2.UP,
@@ -17,7 +18,6 @@ func _physics_process(delta):
 	for key in inputs.keys():
 		if (Input.is_action_pressed(key)):
 			counter += 1
-			print(counter)
 			if (counter >= moveEveryX):
 				move(key)
 				counter = 0
