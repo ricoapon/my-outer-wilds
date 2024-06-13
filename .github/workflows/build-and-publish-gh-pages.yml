@@ -1,0 +1,43 @@
+name: "Publish to GitHub Pages"
+
+env:
+  GODOT_VERSION: 4.2.2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    container:
+      image: barichello/godot-ci:4.2.2
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: godot -v --export-release --headless "Web" build/web/index.html project.godot
+
+      # This file is downloaded from https://github.com/gzuidhof/coi-serviceworker.
+      - name: Add coi-service-worker
+        run: |
+          sed -i '4 i <script src="coi-serviceworker.min.js"></script>' build/web/index.html
+
+      - name: Create gh-pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web/
+
+      - name: Publish to gh-pages
+        uses: actions/deploy-pages@v4
