@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dg07oc6a22c3a"]
+
+[ext_resource type="Script" path="res://components/TransitionToMap.gd" id="1_70ald"]
+[ext_resource type="PackedScene" uid="uid://bdvb54rvoo7m2" path="res://components/ContainsPlayer.tscn" id="2_frghq"]
+
+[node name="TransitionToMap" type="Node2D"]
+script = ExtResource("1_70ald")
+
+[node name="ContainsPlayer" parent="." instance=ExtResource("2_frghq")]
+
+[connection signal="player_entered" from="ContainsPlayer" to="." method="_on_contains_player_player_entered"]
