@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc2vlp5em47ju"]
+[gd_scene load_steps=8 format=3 uid="uid://bc2vlp5em47ju"]
 
 [ext_resource type="TileSet" uid="uid://bbnsh0jrlrqq7" path="res://components/tileset.tres" id="1_15bh7"]
 [ext_resource type="Script" path="res://maps/Start.gd" id="2_nfdje"]
 [ext_resource type="PackedScene" uid="uid://44t4e2lpgr57" path="res://components/Teleporter.tscn" id="3_c82bn"]
+[ext_resource type="PackedScene" uid="uid://ckh4mdyd2pa58" path="res://components/Candelabra.tscn" id="4_5ptgc"]
+[ext_resource type="Texture2D" uid="uid://dsxccy7lcyr0w" path="res://assets/colored-transparent_packed.png" id="5_52o8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0spfv"]
 size = Vector2(14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beev8"]
+atlas = ExtResource("5_52o8d")
+region = Rect2(368, 64, 16, 16)
 
 [node name="Start" type="TileMap"]
 tile_set = ExtResource("1_15bh7")
@@ -26,6 +32,21 @@ position = Vector2(448, 144)
 [node name="TeleporterA2" parent="." instance=ExtResource("3_c82bn")]
 position = Vector2(192, 96)
 
+[node name="Candelabra" parent="." instance=ExtResource("4_5ptgc")]
+position = Vector2(416, 224)
+
+[node name="Candelabra2" parent="." instance=ExtResource("4_5ptgc")]
+position = Vector2(320, 208)
+
+[node name="HiddenGem" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(368, 160)
+scale = Vector2(1, 1)
+texture = SubResource("AtlasTexture_beev8")
+centered = false
+
 [connection signal="body_entered" from="IntroMuseum" to="." method="_on_intro_museum_body_entered"]
 [connection signal="teleport" from="TeleporterA1" to="." method="_on_teleporter_a_1_teleport"]
 [connection signal="teleport" from="TeleporterA2" to="." method="_on_teleporter_a_2_teleport"]
+[connection signal="light" from="Candelabra" to="." method="_on_candelabra_light"]
+[connection signal="light" from="Candelabra2" to="." method="_on_candelabra_light"]
