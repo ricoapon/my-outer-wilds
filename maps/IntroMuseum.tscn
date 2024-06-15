@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://brmrxciehy8kq"]
+
+[ext_resource type="TileSet" uid="uid://bbnsh0jrlrqq7" path="res://components/tileset.tres" id="1_r4hue"]
+[ext_resource type="Script" path="res://maps/IntroMuseum.gd" id="2_oc0hf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0ep1"]
+size = Vector2(14, 14)
+
+[node name="IntroMuseum" type="TileMap"]
+tile_set = ExtResource("1_r4hue")
+format = 2
+layer_0/tile_data = PackedInt32Array(38, 0, 1, 39, 0, 1, 65575, 0, 1, 1, 0, 1, 0, 0, 1, 65536, 0, 1, 1376256, 0, 1, 1376257, 0, 1, 1310720, 0, 1, 1310759, 0, 1, 1376294, 0, 1, 1376295, 0, 1, 327686, 0, 13, 393222, 0, 13, 458758, 0, 13, 524294, 0, 13, 589830, 0, 13, 655366, 0, 13, 720902, 0, 13, 786438, 0, 13, 851974, 0, 13, 917510, 0, 13, 983046, 0, 13, 1048582, 0, 13, 1048583, 0, 13, 1048584, 0, 13, 1048585, 0, 13, 1048586, 0, 13, 1048587, 0, 13, 1048588, 0, 13, 1048589, 0, 13, 1048590, 0, 13, 1048591, 0, 13, 1048592, 0, 13, 1048594, 0, 13, 1048595, 0, 13, 1048596, 0, 13, 1048597, 0, 13, 1048598, 0, 13, 1048599, 0, 13, 1048600, 0, 13, 1048601, 0, 13, 1048602, 0, 13, 1048603, 0, 13, 1048604, 0, 13, 1048605, 0, 13, 983069, 0, 13, 917533, 0, 13, 851997, 0, 13, 786461, 0, 13, 720925, 0, 13, 655389, 0, 13, 589853, 0, 13, 524317, 0, 13, 458781, 0, 13, 393245, 0, 13, 327709, 0, 13, 262173, 0, 13, 262172, 0, 13, 262171, 0, 13, 262170, 0, 13, 262169, 0, 13, 262168, 0, 13, 262167, 0, 13, 262166, 0, 13, 262165, 0, 13, 262164, 0, 13, 262163, 0, 13, 262162, 0, 13, 262161, 0, 13, 262160, 0, 13, 262159, 0, 13, 262158, 0, 13, 262157, 0, 13, 262156, 0, 13, 262155, 0, 13, 262154, 0, 13, 262153, 0, 13, 262152, 0, 13, 262151, 0, 13, 262150, 0, 13)
+script = ExtResource("2_oc0hf")
+
+[node name="Start" type="Area2D" parent="."]
+position = Vector2(272, 256)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start"]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_v0ep1")
+
+[connection signal="transition_player_to_map" from="." to="." method="_on_transition_player_to_map"]
+[connection signal="body_entered" from="Start" to="." method="_on_start_body_entered"]

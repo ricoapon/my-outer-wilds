@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6hq2f4o1rtth"]
 
-[ext_resource type="PackedScene" uid="uid://bc2vlp5em47ju" path="res://maps/Start.tscn" id="2_bngkd"]
+[ext_resource type="Script" path="res://main.gd" id="1_4hbbe"]
 [ext_resource type="PackedScene" uid="uid://cxrjn0pudlheq" path="res://components/player.tscn" id="4_jrd6t"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
+script = ExtResource("1_4hbbe")
 
-[node name="Start" parent="." instance=ExtResource("2_bngkd")]
+[node name="LevelMap" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2.27, 2.27)
@@ -13,4 +14,3 @@ anchor_mode = 0
 zoom = Vector2(2, 2.045)
 
 [node name="Player" parent="." instance=ExtResource("4_jrd6t")]
-position = Vector2(480, 176)
