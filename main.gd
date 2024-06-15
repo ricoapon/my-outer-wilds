@@ -42,3 +42,11 @@ func _on_level_transition_player_to_map(map_entry_point):
 
 func _on_level_teleport_player(pos):
 	player.position = pos
+
+
+func _on_player_took_step():
+	$StepCounter.take_step()
+
+
+func _on_step_counter_no_steps_left():
+	get_tree().reload_current_scene()
