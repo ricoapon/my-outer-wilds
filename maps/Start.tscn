@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc2vlp5em47ju"]
+[gd_scene load_steps=5 format=3 uid="uid://bc2vlp5em47ju"]
 
 [ext_resource type="TileSet" uid="uid://bbnsh0jrlrqq7" path="res://components/tileset.tres" id="1_15bh7"]
 [ext_resource type="Script" path="res://maps/Start.gd" id="2_nfdje"]
+[ext_resource type="PackedScene" uid="uid://44t4e2lpgr57" path="res://components/Teleporter.tscn" id="3_c82bn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0spfv"]
 size = Vector2(14, 14)
@@ -19,4 +20,12 @@ position = Vector2(304, 192)
 position = Vector2(8, 8)
 shape = SubResource("RectangleShape2D_0spfv")
 
+[node name="TeleporterA1" parent="." instance=ExtResource("3_c82bn")]
+position = Vector2(448, 144)
+
+[node name="TeleporterA2" parent="." instance=ExtResource("3_c82bn")]
+position = Vector2(192, 96)
+
 [connection signal="body_entered" from="IntroMuseum" to="." method="_on_intro_museum_body_entered"]
+[connection signal="teleport" from="TeleporterA1" to="." method="_on_teleporter_a_1_teleport"]
+[connection signal="teleport" from="TeleporterA2" to="." method="_on_teleporter_a_2_teleport"]

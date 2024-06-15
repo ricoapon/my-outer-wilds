@@ -32,9 +32,13 @@ func _on_level_transition_player_to_map(map_entry_point):
 	var new_level_map: Map = load(map_entry_point_to_file[map_entry_point]).instantiate()
 	new_level_map.init_map_entry_point = map_entry_point
 	new_level_map.connect("transition_player_to_map", _on_level_transition_player_to_map)
+	new_level_map.connect("teleport_player", _on_level_teleport_player)
 	
 	# Show the new level map on screen.
 	level.add_child(new_level_map)
 	
 	# Move the player to the right position.
 	player.position = map_entry_point_to_player_position[map_entry_point] * 16
+
+func _on_level_teleport_player(pos):
+	player.position = pos

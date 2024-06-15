@@ -7,5 +7,6 @@ enum MapEntryPoint {
 }
 
 signal transition_player_to_map(MapEntryPoint)
+signal teleport_player(pos)
 
 @export var init_map_entry_point: MapEntryPoint
