@@ -19,6 +19,7 @@ var map_entry_point_to_player_position = {
 }
 
 func _ready():
+	GlobalStepCounter.connect("no_steps_left", _on_step_counter_no_steps_left)
 	_on_level_transition_player_to_map(Map.MapEntryPoint.START_0)
 
 func _on_level_transition_player_to_map(map_entry_point):
@@ -42,11 +43,6 @@ func _on_level_transition_player_to_map(map_entry_point):
 
 func _on_level_teleport_player(pos):
 	player.position = pos
-
-
-func _on_player_took_step():
-	$StepCounter.take_step()
-
 
 func _on_step_counter_no_steps_left():
 	get_tree().reload_current_scene()

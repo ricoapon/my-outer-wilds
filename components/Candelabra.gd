@@ -23,3 +23,4 @@ func _unhandled_input(event):
 	if event.is_action_pressed("action"):
 		point_light.enabled = !point_light.enabled
 		light.emit(point_light.enabled)
+		GlobalStepCounter.take_step()

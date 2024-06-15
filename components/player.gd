@@ -8,8 +8,6 @@ extends CharacterBody2D
 
 const grid_pixel_size = 16
 
-signal took_step
-
 var is_moving = false
 @onready var sprite = $Sprite2D
 @onready var ray_cast = $RayCast
@@ -29,7 +27,7 @@ func _physics_process(_delta):
 	sprite.position = sprite.position.move_toward(target.position, 2.5)
 	
 	if target.position == sprite.position:
-		took_step.emit()
+		GlobalStepCounter.take_step()
 		is_moving = false
 		return
 
