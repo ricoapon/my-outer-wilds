@@ -1,6 +1,6 @@
-extends Node2D
+class_name Teleport extends Node2D
 
-signal teleport
+@export var other_teleporter: Teleport
 
 func _contains_player():
 	return $ContainsPlayer.contains_player
@@ -34,6 +34,6 @@ func _unhandled_input(event):
 	if event.is_action_released("action"):
 		is_action_pressed = false
 		if count_action_hold > count_action_treshold:
-			teleport.emit()
+			GlobalTeleportPlayer.teleport_player_to.emit(other_teleporter.position)
 		count_action_hold = 0
 		count_seconds = 0
