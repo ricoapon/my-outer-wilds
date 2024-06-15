@@ -2,13 +2,8 @@ extends Node2D
 
 signal teleport
 
-var contains_player = false
-
-func _on_area_2d_body_entered(body):
-	contains_player = true
-
-func _on_area_2d_body_exited(body):
-	contains_player = false
+func _contains_player():
+	return $ContainsPlayer.contains_player
 
 # We count how long the action key is pressed. If this goes over the threshold,
 # we apply the action.
@@ -29,7 +24,7 @@ func _process(delta):
 		count_seconds -= 1
 
 func _unhandled_input(event):
-	if !contains_player:
+	if !_contains_player():
 		return
 	
 	if event.is_action_pressed("action"):
