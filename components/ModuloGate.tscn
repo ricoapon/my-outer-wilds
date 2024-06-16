@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2ikvusr51itd"]
+
+[ext_resource type="Script" path="res://components/ModuloGate.gd" id="1_esruv"]
+[ext_resource type="PackedScene" uid="uid://bdvb54rvoo7m2" path="res://components/ContainsPlayer.tscn" id="2_7eufc"]
+[ext_resource type="Texture2D" uid="uid://dsxccy7lcyr0w" path="res://assets/colored-transparent_packed.png" id="3_c6pv7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hcqj"]
+size = Vector2(16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0o8k"]
+atlas = ExtResource("3_c6pv7")
+region = Rect2(80, 80, 16, 16)
+
+[node name="ModuloGate" type="StaticBody2D"]
+script = ExtResource("1_esruv")
+
+[node name="ContainsPlayer" parent="." instance=ExtResource("2_7eufc")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_4hcqj")
+
+[node name="GateSprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_h0o8k")
+centered = false
