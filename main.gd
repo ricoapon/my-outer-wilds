@@ -21,7 +21,7 @@ func _on_level_transition_player_to_map(scene: String, playerPosition: Vector2i)
 		child.queue_free()
 	
 	# Create new level map.
-	var new_level_map: Map = load(scene).instantiate()
+	var new_level_map = load(scene).instantiate()
 	
 	# Show the new level map on screen.
 	level.add_child(new_level_map)

@@ -2,7 +2,7 @@ extends Node
 
 signal no_steps_left
 signal took_step
-const initial_steps_left = 100
+const initial_steps_left = 999 # For testing set to a high value.
 var steps_left = initial_steps_left
 
 var step_counter
