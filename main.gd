@@ -5,25 +5,15 @@ extends Node2D
 @onready var level: Node2D = $LevelMap
 @onready var player = $Player
 
-var map_entry_point_to_file = {
-	Map.MapEntryPoint.INIT_MUSEUM: "res://maps/IntroMuseum.tscn",
-	Map.MapEntryPoint.START_0: "res://maps/Start.tscn",
-	Map.MapEntryPoint.START_FROM_MUSEUM: "res://maps/Start.tscn"
-}
-
-# Vector represents the grid coordinate. Multiply this with grid_size to get the actual position.
-var map_entry_point_to_player_position = {
-	Map.MapEntryPoint.INIT_MUSEUM: Vector2i(17, 15),
-	Map.MapEntryPoint.START_0: Vector2i(30, 11),
-	Map.MapEntryPoint.START_FROM_MUSEUM: Vector2i(19, 13)
-}
+const grid_size = 16
 
 func _ready():
 	GlobalStepCounter.connect("no_steps_left", _on_step_counter_no_steps_left)
 	GlobalTeleportPlayer.connect("teleport_player_to", _on_teleport_player_to)
-	_on_level_transition_player_to_map(Map.MapEntryPoint.START_0)
+	GlobalLevelSwitcher.connect("switch_to_level_signal", _on_level_transition_player_to_map)
+	GlobalLevelSwitcher.switch_to_level(GlobalLevelSwitcher.LevelEntryPoint.START_INITIAL_POSITION)
 
-func _on_level_transition_player_to_map(map_entry_point):
+func _on_level_transition_player_to_map(scene: String, playerPosition: Vector2i):
 	# Delete existing level map (if it exists, which is not the case on startup).
 	while (level.get_child_count() > 0):
 		var child = level.get_children()[0]
@@ -31,15 +21,13 @@ func _on_level_transition_player_to_map(map_entry_point):
 		child.queue_free()
 	
 	# Create new level map.
-	var new_level_map: Map = load(map_entry_point_to_file[map_entry_point]).instantiate()
-	new_level_map.init_map_entry_point = map_entry_point
-	new_level_map.connect("transition_player_to_map", _on_level_transition_player_to_map)
+	var new_level_map: Map = load(scene).instantiate()
 	
 	# Show the new level map on screen.
 	level.add_child(new_level_map)
 	
 	# Move the player to the right position.
-	player.position = map_entry_point_to_player_position[map_entry_point] * 16
+	player.position = playerPosition * grid_size
 
 func _on_teleport_player_to(pos):
 	player.position = pos
