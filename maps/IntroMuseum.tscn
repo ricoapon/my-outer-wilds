@@ -114,9 +114,8 @@ position = Vector2(208, 128)
 [node name="Candelabra2" parent="." instance=ExtResource("4_lxlt3")]
 position = Vector2(368, 128)
 
-[node name="CandelabraSecret" parent="." node_paths=PackedStringArray("candelabras") instance=ExtResource("5_vpked")]
+[node name="CandelabraSecret" parent="." instance=ExtResource("5_vpked")]
 position = Vector2(128, 96)
-candelabras = [NodePath("../Candelabra"), NodePath("../Candelabra2"), NodePath("../Candelabra3")]
 
 [node name="TransitionToMap" parent="CandelabraSecret" instance=ExtResource("3_btm7e")]
 

@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var candelabras: Array[Candelabra]
-@onready var nr_of_lightened_candelabras = candelabras.size()
+var nr_of_lightened_candelabras
+
 # If true, then by default the object is invisible, and triggering the secret will
 # turn it visible. If false, then by default the object is visible, and triggering
 # the secret will turn it invisible.
@@ -9,6 +9,9 @@ extends Node2D
 
 
 func _ready():
+	# We dynamically find all candelabras in the scene.
+	var candelabras = get_tree().get_root().find_children("*", "Candelabra", true, false)
+	nr_of_lightened_candelabras = candelabras.size()
 	for candelabra in candelabras:
 		candelabra.connect("action", _on_candelabra_action)
 	set_all_visible(!hide_object)
