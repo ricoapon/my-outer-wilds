@@ -1,0 +1,129 @@
+[gd_scene load_steps=8 format=3 uid="uid://bevmv8187113h"]
+
+[ext_resource type="TileSet" uid="uid://bbnsh0jrlrqq7" path="res://components/tileset.tres" id="1_vk62n"]
+[ext_resource type="PackedScene" uid="uid://dg07oc6a22c3a" path="res://components/TransitionToMap.tscn" id="2_jnb1t"]
+[ext_resource type="PackedScene" uid="uid://b2ikvusr51itd" path="res://components/ModuloGate.tscn" id="3_26tif"]
+[ext_resource type="PackedScene" uid="uid://ckh4mdyd2pa58" path="res://components/Candelabra.tscn" id="4_qrgl1"]
+[ext_resource type="PackedScene" uid="uid://chfwditlm8boq" path="res://components/CandelabraSecret.tscn" id="5_d2qf5"]
+[ext_resource type="Texture2D" uid="uid://dsxccy7lcyr0w" path="res://assets/colored-transparent_packed.png" id="6_m7hgo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pgsy"]
+atlas = ExtResource("6_m7hgo")
+region = Rect2(32, 96, 16, 16)
+
+[node name="Museum" type="TileMap"]
+tile_set = ExtResource("1_vk62n")
+format = 2
+layer_0/tile_data = PackedInt32Array(786440, 0, 13, 851976, 0, 13, 917512, 0, 13, 983048, 0, 13, 1048584, 0, 13, 1048590, 0, 13, 1048602, 0, 13, 786463, 0, 13, 851999, 0, 13, 917535, 0, 13, 983071, 0, 13, 1048607, 0, 13, 0, 0, 1, 65536, 0, 1, 1310720, 0, 1, 1376256, 0, 1, 1, 0, 1, 1376257, 0, 1, 262152, 0, 13, 327688, 0, 13, 393224, 0, 13, 458760, 0, 13, 524296, 0, 13, 589832, 0, 13, 655368, 0, 13, 720904, 0, 13, 262153, 0, 13, 1048585, 0, 13, 262154, 0, 13, 1048586, 0, 13, 262155, 0, 13, 1048587, 0, 13, 262156, 0, 13, 1048588, 0, 13, 262157, 0, 13, 1048589, 0, 13, 262158, 0, 13, 458766, 262144, 0, 524302, 262144, 0, 589838, 262144, 0, 262159, 0, 13, 458767, 262144, 0, 589839, 262144, 0, 1048591, 0, 13, 262160, 0, 13, 458768, 262144, 0, 589840, 262144, 0, 1048592, 0, 13, 262161, 0, 13, 458769, 262144, 0, 589841, 262144, 0, 1048593, 0, 13, 262162, 0, 13, 458770, 262144, 0, 589842, 262144, 0, 1048594, 0, 13, 262163, 0, 13, 458771, 262144, 0, 589843, 262144, 0, 1048595, 0, 13, 262164, 0, 13, 458772, 262144, 0, 589844, 262144, 0, 262165, 0, 13, 458773, 262144, 0, 589845, 262144, 0, 1048597, 0, 13, 262166, 0, 13, 458774, 262144, 0, 589846, 262144, 0, 1048598, 0, 13, 262167, 0, 13, 458775, 262144, 0, 589847, 262144, 0, 1048599, 0, 13, 262168, 0, 13, 458776, 262144, 0, 589848, 262144, 0, 1048600, 0, 13, 262169, 0, 13, 458777, 262144, 0, 589849, 262144, 0, 1048601, 0, 13, 262170, 0, 13, 458778, 262144, 0, 524314, 262144, 0, 589850, 262144, 0, 262171, 0, 13, 1048603, 0, 13, 262172, 0, 13, 1048604, 0, 13, 262173, 0, 13, 1048605, 0, 13, 262174, 0, 13, 1048606, 0, 13, 262175, 0, 13, 327711, 0, 13, 393247, 0, 13, 458783, 0, 13, 524319, 0, 13, 589855, 0, 13, 655391, 0, 13, 720927, 0, 13, 38, 0, 1, 1376294, 0, 1, 39, 0, 1, 65575, 0, 1, 1310759, 0, 1, 1376295, 0, 1)
+
+[node name="TransitionToMap" parent="." instance=ExtResource("2_jnb1t")]
+position = Vector2(320, 256)
+levelEntryPoint = 1
+
+[node name="ModuloGate" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(144, 160)
+modulo = 80
+
+[node name="ModuloGate2" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(256, 192)
+modulo = 80
+
+[node name="ModuloGate3" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(240, 192)
+modulo = 80
+
+[node name="ModuloGate4" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(224, 192)
+modulo = 80
+
+[node name="ModuloGate5" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(208, 192)
+modulo = 80
+
+[node name="ModuloGate6" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(192, 192)
+modulo = 80
+
+[node name="ModuloGate7" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(176, 192)
+modulo = 80
+
+[node name="ModuloGate8" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(160, 192)
+modulo = 80
+
+[node name="ModuloGate9" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(272, 192)
+modulo = 80
+
+[node name="ModuloGate10" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(384, 192)
+modulo = 80
+
+[node name="ModuloGate11" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(368, 192)
+modulo = 80
+
+[node name="ModuloGate12" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(352, 192)
+modulo = 80
+
+[node name="ModuloGate13" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(336, 192)
+modulo = 80
+
+[node name="ModuloGate14" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(320, 192)
+modulo = 80
+
+[node name="ModuloGate15" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(304, 192)
+modulo = 80
+
+[node name="ModuloGate16" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(288, 192)
+modulo = 80
+
+[node name="ModuloGate17" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(400, 192)
+modulo = 80
+
+[node name="ModuloGate18" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(464, 192)
+modulo = 80
+
+[node name="ModuloGate19" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(448, 192)
+modulo = 80
+
+[node name="ModuloGate20" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(432, 192)
+modulo = 80
+
+[node name="ModuloGate21" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(416, 192)
+modulo = 80
+
+[node name="ModuloGate22" parent="." instance=ExtResource("3_26tif")]
+position = Vector2(480, 192)
+modulo = 80
+
+[node name="Candelabra" parent="." instance=ExtResource("4_qrgl1")]
+position = Vector2(240, 128)
+
+[node name="Candelabra2" parent="." instance=ExtResource("4_qrgl1")]
+position = Vector2(400, 128)
+
+[node name="CandelabraSecret" parent="." instance=ExtResource("5_d2qf5")]
+position = Vector2(160, 96)
+hide_object = false
+
+[node name="TransitionToMap" parent="CandelabraSecret" instance=ExtResource("2_jnb1t")]
+levelEntryPoint = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="CandelabraSecret"]
+texture = SubResource("AtlasTexture_4pgsy")
+centered = false
+
+[node name="Candelabra3" parent="." instance=ExtResource("4_qrgl1")]
+position = Vector2(320, 128)

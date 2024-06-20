@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://c3cynt2q8s1ty"]
+
+[node name="CastleTopFloor" type="TileMap"]
+format = 2
