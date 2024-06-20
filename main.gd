@@ -14,23 +14,25 @@ func _ready():
 	GlobalLevelSwitcher.switch_to_level(GlobalLevelSwitcher.LevelEntryPoint.START_INITIAL_POSITION)
 
 func _on_level_transition_player_to_map(scene: String, playerPosition: Vector2i):
+	player.get_children()[2].disabled = true
 	self.call_deferred("_on_level_transition_player_to_map_deferred", scene, playerPosition)
+
 
 func _on_level_transition_player_to_map_deferred(scene: String, playerPosition: Vector2i):
 	get_tree().paused=true
-	player.position = playerPosition * grid_size
 	# Delete existing level map (if it exists, which is not the case on startup).
 	while (level.get_child_count() > 0):
 		var child = level.get_children()[0]
 		level.remove_child(child)
-		child.free()
+		child.queue_free()
 	
 	# Create new level map.
 	var new_level_map = load(scene).instantiate()
 	
 	# Show the new level map on screen.
 	level.add_child(new_level_map)
-	
+	player.position = playerPosition * grid_size
+	player.get_children()[2].disabled = false
 	get_tree().paused=false
 
 func _on_teleport_player_to(pos):
