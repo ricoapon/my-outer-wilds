@@ -41,3 +41,4 @@ grow_horizontal = 1
 grow_vertical = 1
 
 [node name="FloodMap" parent="." instance=ExtResource("4_06wm7")]
+position = Vector2(-1, 0)

@@ -13,7 +13,7 @@ func columns(x: int):
 	var column_size = 32
 	# We have to set x coordinate 1 less, otherwise collision is detected when
 	# the player is next to the water instead of in it.
-	collision.shape.set_size(Vector2(max(column_size * x - 1, 0), 352))
+	collision.shape.set_size(Vector2(column_size * x, 352))
 	
 	# Always clear, because if we move to another level, the x value can be different.
 	self.clear()
