@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b6hq2f4o1rtth"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4hbbe"]
-[ext_resource type="PackedScene" uid="uid://cqmcy14kaqqja" path="res://components/StepCounter.tscn" id="3_i8pt3"]
+[ext_resource type="PackedScene" uid="uid://cqmcy14kaqqja" path="res://components/GameTimeDisplay.tscn" id="3_i8pt3"]
 [ext_resource type="PackedScene" uid="uid://cl15jxide1eg0" path="res://components/FloodMap.tscn" id="4_06wm7"]
 [ext_resource type="PackedScene" uid="uid://cxrjn0pudlheq" path="res://components/player.tscn" id="4_jrd6t"]
 
@@ -29,17 +29,15 @@ position = Vector2(320, 360)
 scale = Vector2(10, 0.25)
 texture = SubResource("GradientTexture2D_xk03h")
 
-[node name="StepCounter" parent="." instance=ExtResource("3_i8pt3")]
+[node name="GameTimeDisplay" parent="." instance=ExtResource("3_i8pt3")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 592.0
+offset_left = 432.0
 offset_top = 352.0
-offset_right = 592.0
-offset_bottom = 352.0
+offset_right = 640.0
+offset_bottom = 368.0
 grow_horizontal = 1
 grow_vertical = 1
 
 [node name="FloodMap" parent="." instance=ExtResource("4_06wm7")]
-
-[connection signal="no_steps_left" from="StepCounter" to="." method="_on_step_counter_no_steps_left"]

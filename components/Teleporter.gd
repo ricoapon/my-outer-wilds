@@ -11,8 +11,9 @@ var count_action_treshold = 3
 var count_secret_action_threshold = 9
 var is_action_pressed = false
 var count_action_hold = 0
-# We want to increase the step counter every time a second passes, and not decrease
-# by 3 in one step if we release the spacebar. So we have a second variable for this.
+# We want to increase the minutes every time 0.5 seconds in real time passes, and not increase
+# by 3 in one go if we release the spacebar. So we have a second variable for this.
+# We use 0.5 seconds, because that way the player doesn't need to hold it forever.
 var count_seconds = 0
 
 func _process(delta):
@@ -20,9 +21,9 @@ func _process(delta):
 		return
 	count_action_hold += delta
 	count_seconds += delta
-	if (count_seconds >= 1):
-		GlobalStepCounter.take_step()
-		count_seconds -= 1
+	if (count_seconds >= 0.5):
+		GlobalGameTime.increase_minute()
+		count_seconds -= 0.5
 
 func _unhandled_input(event):
 	if !_contains_player():

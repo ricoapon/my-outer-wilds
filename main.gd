@@ -13,7 +13,7 @@ const grid_size = 16
 signal level_switch_complete
 
 func _ready():
-	GlobalStepCounter.connect("no_steps_left", _on_step_counter_no_steps_left)
+	GlobalGameTime.connect("reset", in_game_time_reset)
 	GlobalTeleportPlayer.connect("teleport_player_to", _on_teleport_player_to)
 	GlobalLevelSwitcher.connect("switch_to_level_signal", _on_level_transition_player_to_map)
 	self.connect("level_switch_complete", _on_level_switch_complete)
@@ -57,6 +57,6 @@ func _on_level_switch_complete():
 func _on_teleport_player_to(pos):
 	player.position = pos
 
-func _on_step_counter_no_steps_left():
+func in_game_time_reset():
 	get_tree().call_deferred("reload_current_scene")
 	GlobalFlood.reset()

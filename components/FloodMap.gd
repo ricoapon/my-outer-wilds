@@ -24,4 +24,4 @@ func columns(x: int):
 func _on_area_2d_body_entered(body):
 	if body.name != "Player":
 		return
-	GlobalStepCounter.reset()
+	GlobalGameTime.reset_game()

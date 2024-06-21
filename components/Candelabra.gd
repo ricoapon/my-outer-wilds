@@ -17,4 +17,4 @@ func _unhandled_input(event):
 
 		point_light.enabled = !point_light.enabled
 		action.emit(point_light.enabled)
-		GlobalStepCounter.take_step()
+		GlobalGameTime.increase_minute()

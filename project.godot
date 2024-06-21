@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalStepCounter="*res://autoload/GlobalStepCounter.gd"
+GlobalGameTime="*res://autoload/GlobalGameTime.gd"
 GlobalTeleportPlayer="*res://autoload/GlobalTeleportPlayer.gd"
 GlobalLevelSwitcher="*res://autoload/GlobalLevelSwitcher.gd"
 GlobalFlood="*res://autoload/GlobalFlood.gd"

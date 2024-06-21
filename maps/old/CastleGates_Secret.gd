@@ -5,7 +5,7 @@ extends TileMap
 var hold = 0
 
 func _ready():
-	GlobalStepCounter.connect("took_step", move_wizard)
+	GlobalGameTime.connect("minute_passed", move_wizard)
 
 func move_wizard():
 	var x = wizard.position.x / 16

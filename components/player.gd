@@ -28,7 +28,7 @@ func _physics_process(_delta):
 	sprite.position = sprite.position.move_toward(target.position, 2.5)
 	
 	if target.position == sprite.position:
-		GlobalStepCounter.take_step()
+		GlobalGameTime.increase_minute()
 		is_moving = false
 		return
 
