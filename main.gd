@@ -58,4 +58,5 @@ func _on_teleport_player_to(pos):
 	player.position = pos
 
 func _on_step_counter_no_steps_left():
-	get_tree().reload_current_scene()
+	get_tree().call_deferred("reload_current_scene")
+	GlobalFlood.reset()

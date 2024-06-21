@@ -6,7 +6,7 @@ signal no_steps_left
 
 func _ready():
 	GlobalStepCounter.set_step_counter(self)
-	set_steps_left(GlobalStepCounter.steps_left)
+	set_steps_taken(GlobalStepCounter.steps_taken)
 
-func set_steps_left(i):
+func set_steps_taken(i):
 	label.text = str(i)

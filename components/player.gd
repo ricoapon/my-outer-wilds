@@ -49,7 +49,10 @@ func move(direction: Vector2):
 	ray_cast.target_position = delta_position
 	ray_cast.force_raycast_update()
 	if (ray_cast.is_colliding()):
-		return
+		# Allow the player to move into the water, so you can kill yourself.
+		# This prevents the player from getting stuck.
+		if !ray_cast.get_collider().is_in_group("flood"):
+			return
 
 	is_moving = true
 

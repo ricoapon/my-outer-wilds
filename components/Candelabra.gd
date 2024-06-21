@@ -11,8 +11,10 @@ func _contains_player():
 func _unhandled_input(event):
 	if !_contains_player():
 		return
+
 	
 	if event.is_action_pressed("action"):
+
 		point_light.enabled = !point_light.enabled
 		action.emit(point_light.enabled)
 		GlobalStepCounter.take_step()
