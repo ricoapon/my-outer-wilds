@@ -17,7 +17,7 @@ func _ready():
 	GlobalTeleportPlayer.connect("teleport_player_to", _on_teleport_player_to)
 	GlobalLevelSwitcher.connect("switch_to_level_signal", _on_level_transition_player_to_map)
 	self.connect("level_switch_complete", _on_level_switch_complete)
-	GlobalLevelSwitcher.switch_to_level(GlobalLevelSwitcher.LevelEntryPoint.MAZE_FROM_FOREST)
+	GlobalLevelSwitcher.switch_to_level(GlobalLevelSwitcher.LevelEntryPoint.START_INITIAL_POSITION)
 	
 
 func _on_level_transition_player_to_map(scene: String, playerPosition: Vector2i):

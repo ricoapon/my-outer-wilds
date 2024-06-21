@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://wpne36tg17ks"]
+[gd_scene load_steps=4 format=3 uid="uid://wpne36tg17ks"]
 
 [ext_resource type="TileSet" uid="uid://bbnsh0jrlrqq7" path="res://components/tileset.tres" id="1_2w68t"]
 [ext_resource type="PackedScene" uid="uid://dg07oc6a22c3a" path="res://components/TransitionToMap.tscn" id="2_oycte"]
+[ext_resource type="PackedScene" uid="uid://44t4e2lpgr57" path="res://components/Teleporter.tscn" id="3_wjyru"]
 
 [node name="Houses" type="TileMap"]
 tile_set = ExtResource("1_2w68t")
@@ -23,3 +24,11 @@ levelEntryPoint = 18
 [node name="TransitionToStart" parent="." instance=ExtResource("2_oycte")]
 position = Vector2(288, 336)
 levelEntryPoint = 2
+
+[node name="Teleporter" parent="." node_paths=PackedStringArray("other_teleporter") instance=ExtResource("3_wjyru")]
+position = Vector2(256, 304)
+other_teleporter = NodePath("../Teleporter2")
+
+[node name="Teleporter2" parent="." node_paths=PackedStringArray("other_teleporter") instance=ExtResource("3_wjyru")]
+position = Vector2(592, 112)
+other_teleporter = NodePath("../Teleporter")

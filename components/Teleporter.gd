@@ -8,6 +8,7 @@ func _contains_player():
 # We count how long the action key is pressed. If this goes over the threshold,
 # we apply the action.
 var count_action_treshold = 3
+var count_secret_action_threshold = 9
 var is_action_pressed = false
 var count_action_hold = 0
 # We want to increase the step counter every time a second passes, and not decrease
@@ -33,7 +34,9 @@ func _unhandled_input(event):
 	
 	if event.is_action_released("action"):
 		is_action_pressed = false
-		if count_action_hold > count_action_treshold:
+		if count_action_hold > count_secret_action_threshold:
+			GlobalLevelSwitcher.switch_to_level(GlobalLevelSwitcher.LevelEntryPoint.DAM_FROM_TELEPORT)
+		else:
 			GlobalTeleportPlayer.teleport_player_to.emit(other_teleporter.position)
 		count_action_hold = 0
 		count_seconds = 0
