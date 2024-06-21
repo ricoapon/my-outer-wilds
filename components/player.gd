@@ -13,9 +13,6 @@ var is_moving = false
 @onready var ray_cast = $RayCast
 @onready var target = $Target
 
-# When moving, we want the player to activate squares (like transition) only when
-# the sprite has catched up. So we disable the collision shape if we are moving.
-@onready var collision_shape = $CollisionShape2D
 
 var input_to_direction = {
 	'up': Vector2.UP,
@@ -33,7 +30,6 @@ func _physics_process(_delta):
 	if target.position == sprite.position:
 		GlobalStepCounter.take_step()
 		is_moving = false
-		collision_shape.disabled = false
 		return
 
 func _process(_delta):
@@ -56,7 +52,6 @@ func move(direction: Vector2):
 		return
 
 	is_moving = true
-	collision_shape.disabled = true
 
 	# Move the player to the new spot, together with the ray cast poining to the right direction.
 	# But we move the sprite back to the old tile, so that this can slowly move towards it.	

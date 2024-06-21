@@ -10,15 +10,15 @@ layer_0/tile_data = PackedInt32Array(1, 0, 1, 0, 0, 1, 65536, 0, 1, 1310720, 0, 
 
 [node name="TransitionChappel" parent="." instance=ExtResource("2_oycte")]
 position = Vector2(624, 144)
-levelEntryPoint = 18
+levelEntryPoint = 20
 
 [node name="TransitionToHouseWizard" parent="." instance=ExtResource("2_oycte")]
 position = Vector2(512, 272)
-levelEntryPoint = 17
+levelEntryPoint = 19
 
 [node name="TransitionToHouseCulprit" parent="." instance=ExtResource("2_oycte")]
 position = Vector2(96, 128)
-levelEntryPoint = 16
+levelEntryPoint = 18
 
 [node name="TransitionToStart" parent="." instance=ExtResource("2_oycte")]
 position = Vector2(288, 336)

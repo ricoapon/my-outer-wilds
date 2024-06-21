@@ -46,6 +46,7 @@ enum LevelEntryPoint {
 	CASTLE_2ND_FLOOR_FROM_SECRET,
 	CASTLE_2ND_FLOOR_SECRET,
 	CASTLE_TOP_FLOOR,
+	MAZE_TOP_FLOOR_FROM_MAZE,
 }
 
 var level_entry_point_to_scene = {
@@ -79,6 +80,7 @@ var level_entry_point_to_scene = {
 	LevelEntryPoint.CASTLE_2ND_FLOOR_FROM_SECRET: "res://maps/Castle2ndFloor.tscn",
 	LevelEntryPoint.CASTLE_2ND_FLOOR_SECRET: "res://maps/Castle2ndFloorSecret.tscn",
 	LevelEntryPoint.CASTLE_TOP_FLOOR: "res://maps/CastleTopFloor.tscn",
+	LevelEntryPoint.MAZE_TOP_FLOOR_FROM_MAZE: "res://maps/MazeTopFloor.tscn",
 }
 
 var map_entry_point_to_player_position = {
@@ -89,20 +91,20 @@ var map_entry_point_to_player_position = {
 	LevelEntryPoint.START_FROM_CASTLE: Vector2i(38, 9),
 	LevelEntryPoint.MUSEUM_FROM_START: Vector2i(20, 15),
 	LevelEntryPoint.MUSEUM_FROM_TOP_FLOOR: Vector2i(11, 6),
-	LevelEntryPoint.MUSEUM_TOP_FLOOR_FROM_MUSEUM: Vector2i(11, 8),
+	LevelEntryPoint.MUSEUM_TOP_FLOOR_FROM_MUSEUM: Vector2i(11, 6),
 	LevelEntryPoint.FOREST_FROM_START: Vector2i(38, 9),
-	LevelEntryPoint.FOREST_FROM_DAM: Vector2i(0, 0),
-	LevelEntryPoint.FOREST_FROM_MAZE: Vector2i(0, 0),
-	LevelEntryPoint.MAZE_FROM_FOREST: Vector2i(0, 0),
-	LevelEntryPoint.DAM_FROM_TELEPORT: Vector2i(0, 0),
-	LevelEntryPoint.DAM_FROM_FOREST: Vector2i(0, 0),
-	LevelEntryPoint.HOUSES_FROM_START: Vector2i(0, 0),
-	LevelEntryPoint.HOUSES_FROM_CHAPPEL: Vector2i(0, 0),
-	LevelEntryPoint.HOUSES_FROM_HOUSE_CULPRIT: Vector2i(0, 0),
-	LevelEntryPoint.HOUSES_FROM_HOUSE_WIZARD: Vector2i(0, 0),
-	LevelEntryPoint.HOUSE_CULPRIT_FROM_HOUSES: Vector2i(0, 0),
-	LevelEntryPoint.HOUSE_WIZARD_FROM_HOUSES: Vector2i(0, 0),
-	LevelEntryPoint.CHAPPEL_FROM_HOUSES: Vector2i(0, 0),
+	LevelEntryPoint.FOREST_FROM_DAM: Vector2i(1, 19),
+	LevelEntryPoint.FOREST_FROM_MAZE: Vector2i(14, 14),
+	LevelEntryPoint.MAZE_FROM_FOREST: Vector2i(19, 13),
+	LevelEntryPoint.DAM_FROM_TELEPORT: Vector2i(29, 15),
+	LevelEntryPoint.DAM_FROM_FOREST: Vector2i(38, 20),
+	LevelEntryPoint.HOUSES_FROM_START: Vector2i(18, 20),
+	LevelEntryPoint.HOUSES_FROM_CHAPPEL: Vector2i(38, 9),
+	LevelEntryPoint.HOUSES_FROM_HOUSE_CULPRIT: Vector2i(6, 9),
+	LevelEntryPoint.HOUSES_FROM_HOUSE_WIZARD: Vector2i(32, 18),
+	LevelEntryPoint.HOUSE_CULPRIT_FROM_HOUSES: Vector2i(19, 13),
+	LevelEntryPoint.HOUSE_WIZARD_FROM_HOUSES: Vector2i(19, 13),
+	LevelEntryPoint.CHAPPEL_FROM_HOUSES: Vector2i(12, 9),
 	LevelEntryPoint.CHAPPEL_FROM_CASTLE: Vector2i(0, 0),
 	LevelEntryPoint.CASTLE_FROM_START: Vector2i(0, 0),
 	LevelEntryPoint.CASTLE_FROM_CHAPPEL: Vector2i(0, 0),
@@ -112,4 +114,5 @@ var map_entry_point_to_player_position = {
 	LevelEntryPoint.CASTLE_2ND_FLOOR_FROM_SECRET: Vector2i(0, 0),
 	LevelEntryPoint.CASTLE_2ND_FLOOR_SECRET: Vector2i(0, 0),
 	LevelEntryPoint.CASTLE_TOP_FLOOR: Vector2i(0, 0),
+	LevelEntryPoint.MAZE_TOP_FLOOR_FROM_MAZE: Vector2i(15, 10),
 }

@@ -1,4 +1,39 @@
-[gd_scene format=3 uid="uid://cja7gn578somx"]
+[gd_scene load_steps=7 format=3 uid="uid://cja7gn578somx"]
+
+[ext_resource type="TileSet" uid="uid://bbnsh0jrlrqq7" path="res://components/tileset.tres" id="1_kcumx"]
+[ext_resource type="PackedScene" uid="uid://dg07oc6a22c3a" path="res://components/TransitionToMap.tscn" id="2_gxwa3"]
+[ext_resource type="PackedScene" uid="uid://chfwditlm8boq" path="res://components/CandelabraSecret.tscn" id="3_c7hvu"]
+[ext_resource type="Texture2D" uid="uid://dsxccy7lcyr0w" path="res://assets/colored-transparent_packed.png" id="4_joard"]
+[ext_resource type="PackedScene" uid="uid://ckh4mdyd2pa58" path="res://components/Candelabra.tscn" id="5_tbui3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdg5d"]
+atlas = ExtResource("4_joard")
+region = Rect2(720, 128, 16, 16)
 
 [node name="HouseCulprit" type="TileMap"]
+tile_set = ExtResource("1_kcumx")
 format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 1, 65536, 0, 1, 1310720, 0, 1, 1376256, 0, 1, 1, 0, 1, 1376257, 0, 1, 458764, 851968, 16, 524300, 851968, 16, 589836, 851968, 16, 655372, 851968, 16, 720908, 851968, 16, 786444, 851968, 16, 851980, 851968, 16, 917516, 851968, 16, 917517, 851968, 16, 917518, 851968, 16, 917519, 851968, 16, 917520, 851968, 16, 917521, 851968, 16, 917522, 851968, 16, 917524, 851968, 16, 917525, 851968, 16, 917526, 851968, 16, 917527, 851968, 16, 917528, 851968, 16, 917529, 851968, 16, 458778, 851968, 16, 524314, 851968, 16, 589850, 851968, 16, 655386, 851968, 16, 720922, 851968, 16, 786458, 851968, 16, 851994, 851968, 16, 917530, 851968, 16, 38, 0, 1, 1376294, 0, 1, 39, 0, 1, 65575, 0, 1, 1310759, 0, 1, 1376295, 0, 1, 262157, 851968, 16, 262158, 851968, 16, 262159, 720896, 16, 262160, 851968, 16, 262161, 851968, 16, 262162, 851968, 16, 262163, 851968, 16, 262164, 851968, 16, 262165, 851968, 16, 262166, 720896, 16, 262167, 851968, 16, 262168, 851968, 16, 262169, 851968, 16, 262156, 851968, 16, 327692, 851968, 16, 393228, 851968, 16, 262170, 851968, 16, 327706, 851968, 16, 393242, 851968, 16, 393232, 131072, 268435462, 655373, 327680, 3, 655374, 327680, 3, 655375, 327680, 3, 655376, 327680, 3, 655377, 327680, 3, 655378, 327680, 3, 589842, 327680, 3, 524306, 327680, 3, 458770, 327680, 3, 393234, 327680, 3, 327698, 327680, 3)
+
+[node name="TransitionToMap" parent="." instance=ExtResource("2_gxwa3")]
+position = Vector2(304, 224)
+levelEntryPoint = 16
+
+[node name="CandelabraSecret" parent="." instance=ExtResource("3_c7hvu")]
+position = Vector2(224, 128)
+
+[node name="Sprite2D" type="Sprite2D" parent="CandelabraSecret"]
+texture = SubResource("AtlasTexture_kdg5d")
+centered = false
+
+[node name="Candelabra" parent="." instance=ExtResource("5_tbui3")]
+position = Vector2(384, 192)
+
+[node name="Candelabra2" parent="." instance=ExtResource("5_tbui3")]
+position = Vector2(384, 96)
+
+[node name="Candelabra3" parent="." instance=ExtResource("5_tbui3")]
+position = Vector2(224, 192)
+
+[node name="CandelabraBehindBars" parent="." instance=ExtResource("5_tbui3")]
+position = Vector2(224, 96)
