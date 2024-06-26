@@ -35,9 +35,11 @@ func _unhandled_input(event):
 	
 	if event.is_action_released("action"):
 		is_action_pressed = false
-		if count_action_hold > count_secret_action_threshold:
+		# We increase minutes every 0.5 seconds, so the hold duration is actually twice that much.
+		var actual_hold = count_action_hold * 2
+		if actual_hold >= count_secret_action_threshold:
 			GlobalLevelSwitcher.switch_to_level(GlobalLevelSwitcher.LevelEntryPoint.DAM_FROM_TELEPORT)
-		else:
+		elif actual_hold >= count_action_treshold:
 			GlobalTeleportPlayer.teleport_player_to.emit(other_teleporter.position)
 		count_action_hold = 0
 		count_seconds = 0
