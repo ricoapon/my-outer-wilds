@@ -9,9 +9,10 @@ const flood_minutes_delay_per_scene = {
 	"res://maps/Houses.tscn": 40,
 }
 
+signal starting_flood
 signal flood_columns(int)
 
-var start_flood_time = GameTime.new(1, 23, 6)
+var start_flood_time = null
 var current_scene
 
 func _ready():
@@ -22,6 +23,12 @@ func _ready():
 func start_flood():
 	var now = GlobalGameTime.current_game_time
 	start_flood_time = GameTime.new(now.days, now.hours, now.minutes)
+	starting_flood.emit()
+
+func is_flooding():
+	if start_flood_time == null:
+		return false
+	return GlobalGameTime.current_game_time.in_minutes() >= start_flood_time.in_minutes()
 
 func on_switch_level(scene: String, _playerPosition: Vector2i):
 	# To prevent collision checks when transitioning, we remove all the flooding first.
@@ -31,7 +38,7 @@ func on_switch_level(scene: String, _playerPosition: Vector2i):
 
 func _check_flood():
 	# If we don't start flooding yet, we do nothing.
-	if (GlobalGameTime.current_game_time.in_minutes() < start_flood_time.in_minutes()):
+	if !is_flooding():
 		return
 	
 	# We are flooding. Determine how many columns we have on our level.
