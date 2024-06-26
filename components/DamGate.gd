@@ -7,3 +7,4 @@ func _ready():
 
 func dissapear():
 	$Sprite.visible = false
+	$CollisionShape2D.disabled = true

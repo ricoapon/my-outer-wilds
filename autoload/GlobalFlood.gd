@@ -4,9 +4,19 @@ extends Node
 # TODO: determine all the correct values.
 # TODO: make Dam and Forest flood in a different way??
 const flood_minutes_delay_per_scene = {
-	"res://maps/Start.tscn": 40,
+	"res://maps/Dam.tscn": 0,
 	"res://maps/Forest.tscn": 0,
+	"res://maps/Maze.tscn": 0,
+	"res://maps/Start.tscn": 40,
+	"res://maps/Museum.tscn": 40,
+	"res://maps/MuseumTopFloor.tscn": 40,
 	"res://maps/Houses.tscn": 40,
+	"res://maps/HouseCulprit.tscn": 40,
+	"res://maps/HouseWizard.tscn": 40,
+	"res://maps/Chappel.tscn": 80,
+	"res://maps/Castle.tscn": 80,
+	"res://maps/Castle2ndFloor.tscn": 80,
+	"res://maps/CastleTopFloor.tscn": 80,
 }
 
 signal starting_flood
