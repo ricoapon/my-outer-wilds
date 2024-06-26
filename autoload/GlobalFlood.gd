@@ -11,13 +11,17 @@ const flood_minutes_delay_per_scene = {
 
 signal flood_columns(int)
 
-var start_flood_time = GameTime.new(0, 23, 6)
+var start_flood_time = GameTime.new(1, 23, 6)
 var current_scene
 
 func _ready():
 	GlobalLevelSwitcher.connect("switch_to_level_signal", on_switch_level)
 	GlobalGameTime.connect("minute_passed", _check_flood)
 	GlobalGameTime.connect("reset", reset)
+
+func start_flood():
+	var now = GlobalGameTime.current_game_time
+	start_flood_time = GameTime.new(now.days, now.hours, now.minutes)
 
 func on_switch_level(scene: String, _playerPosition: Vector2i):
 	# To prevent collision checks when transitioning, we remove all the flooding first.

@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv20ejn4a7jj8"]
+
+[ext_resource type="Script" path="res://components/FloodTrigger.gd" id="1_4wb75"]
+[ext_resource type="Texture2D" uid="uid://dsxccy7lcyr0w" path="res://assets/colored-transparent_packed.png" id="1_sc5n2"]
+[ext_resource type="PackedScene" uid="uid://bdvb54rvoo7m2" path="res://components/ContainsPlayer.tscn" id="2_127a4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agvej"]
+atlas = ExtResource("1_sc5n2")
+region = Rect2(64, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj7aq"]
+atlas = ExtResource("1_sc5n2")
+region = Rect2(48, 160, 16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rs1u"]
+size = Vector2(16, 16)
+
+[node name="FloodTrigger" type="StaticBody2D"]
+script = ExtResource("1_4wb75")
+
+[node name="SpriteOff" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_agvej")
+centered = false
+
+[node name="SpriteOn" type="Sprite2D" parent="."]
+visible = false
+texture = SubResource("AtlasTexture_cj7aq")
+centered = false
+
+[node name="Top" parent="." instance=ExtResource("2_127a4")]
+position = Vector2(0, -16)
+
+[node name="Left" parent="." instance=ExtResource("2_127a4")]
+position = Vector2(-16, 0)
+
+[node name="Right" parent="." instance=ExtResource("2_127a4")]
+position = Vector2(16, 0)
+
+[node name="Bottom" parent="." instance=ExtResource("2_127a4")]
+position = Vector2(0, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 8)
+shape = SubResource("RectangleShape2D_1rs1u")
