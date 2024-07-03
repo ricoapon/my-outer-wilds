@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6hq2f4o1rtth"]
+[gd_scene load_steps=8 format=3 uid="uid://b6hq2f4o1rtth"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4hbbe"]
 [ext_resource type="PackedScene" uid="uid://cqmcy14kaqqja" path="res://components/GameTimeDisplay.tscn" id="3_i8pt3"]
 [ext_resource type="PackedScene" uid="uid://cl15jxide1eg0" path="res://components/FloodMap.tscn" id="4_06wm7"]
 [ext_resource type="PackedScene" uid="uid://cxrjn0pudlheq" path="res://components/player.tscn" id="4_jrd6t"]
+[ext_resource type="PackedScene" uid="uid://d2614cawmt4f4" path="res://components/BackgroundMusic.tscn" id="5_ee4ec"]
 
 [sub_resource type="Gradient" id="Gradient_gixp2"]
 offsets = PackedFloat32Array(0)
@@ -42,3 +43,5 @@ grow_vertical = 1
 
 [node name="FloodMap" parent="." instance=ExtResource("4_06wm7")]
 position = Vector2(-1, 0)
+
+[node name="BackgroundMusic" parent="." instance=ExtResource("5_ee4ec")]

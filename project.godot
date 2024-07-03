@@ -21,6 +21,7 @@ GlobalGameTime="*res://autoload/GlobalGameTime.gd"
 GlobalTeleportPlayer="*res://autoload/GlobalTeleportPlayer.gd"
 GlobalLevelSwitcher="*res://autoload/GlobalLevelSwitcher.gd"
 GlobalFlood="*res://autoload/GlobalFlood.gd"
+GlobalSound="*res://autoload/GlobalSound.gd"
 
 [display]
 

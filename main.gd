@@ -18,7 +18,7 @@ func _ready():
 	GlobalLevelSwitcher.connect("switch_to_level_signal", _on_level_transition_player_to_map)
 	self.connect("level_switch_complete", _on_level_switch_complete)
 	GlobalLevelSwitcher.switch_to_level(GlobalLevelSwitcher.LevelEntryPoint.START_INITIAL_POSITION)
-	
+	GlobalSound.play_song(GlobalSound.Song.BACKGROUND_MUSIC)
 
 func _on_level_transition_player_to_map(scene: String, playerPosition: Vector2i):
 	self.call_deferred("_on_level_transition_player_to_map_deferred", scene, playerPosition)
